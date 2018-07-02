@@ -2,7 +2,7 @@
   "name": "soundpubsub",
   "version": "1.0.0",
   "description": "SoundPubSub provides intuitive results regarding to asynchronous calls of callbacks and computed values/expressions",
-  "main": "soundPubSub.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
