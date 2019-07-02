@@ -21,25 +21,25 @@ function InternalBus() {
             var ref = new FuncReference(callback);
             arr.push(ref);
             return ref;
-        }
+        };
 
         this.publish = function(obj){
             arr.forEach(function(ref){
                 ref.call(obj);
-            })
-        }
+            });
+        };
 
         this.delete = function(ref){
             var index = arr.indexOf(ref);
             arr.splice(index, 1);
-        }
+        };
 
     }
 
 
     this.publish = function(topic, obj){
         var c = subscribersOnce[topic];
-        if(undefined != c){
+        if(typeof c !== 'undefined') {
             c();
             delete subscribersOnce[topic];
         }
@@ -47,12 +47,12 @@ function InternalBus() {
         if(s){
             s.publish(obj);
         }
-    }
+    };
 
 
     this.subscribeOnce = function(topic, callback){
         subscribersOnce[topic] = callback;
-    }
+    };
 
     this.subscribe = function(topic, callback){
         var s = subscribers[topic];
@@ -60,14 +60,14 @@ function InternalBus() {
             subscribers[topic] = s = new  callbackArray();
         }
         return s.push(callback);
-    }
+    };
 
     this.unsubscribe = function(topic, callback){
         var s = subscribers[topic];
         if(s){
             s.delete(callback);
         }
-    }
+    };
 }
 
 
