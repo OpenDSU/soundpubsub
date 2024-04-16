@@ -1,3 +1,3 @@
 module.exports = {
-					soundPubSub: require("./lib/soundPubSub").soundPubSub
+    soundPubSub: require("./lib/soundPubSub").soundPubSub
 };
