@@ -15,21 +15,22 @@ function InternalBus() {
         };
     }
 
-    function callbackArray() {
+    function CallbackArray() {
         let arr = [];
-        this.push = function (callback) {
+        const self = this;
+        self.push = function (callback) {
             let ref = new FuncReference(callback);
             arr.push(ref);
             return ref;
         };
 
-        this.publish = function (obj) {
+        self.publish = function (obj) {
             arr.forEach(function (ref) {
                 ref.call(obj);
             });
         };
 
-        this.delete = function (ref) {
+        self.delete = function (ref) {
             let index = arr.indexOf(ref);
             arr.splice(index, 1);
         };
@@ -48,8 +49,7 @@ function InternalBus() {
             s.publish(obj);
         }
     };
-
-
+    
     this.subscribeOnce = function (topic, callback) {
         subscribersOnce[topic] = callback;
     };
@@ -57,7 +57,7 @@ function InternalBus() {
     this.subscribe = function (topic, callback) {
         let s = subscribers[topic];
         if (!s) {
-            subscribers[topic] = s = new callbackArray();
+            subscribers[topic] = s = new CallbackArray();
         }
         return s.push(callback);
     };
