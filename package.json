@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/PrivateSky/soundpubsub/issues"
   },
-  "homepage": "https://github.com/PrivateSky/soundpubsub#readme"
+  "homepage": "https://github.com/PrivateSky/soundpubsub#readme",
+  "dependencies": {
+    "queue": "^7.0.0"
+  }
 }
