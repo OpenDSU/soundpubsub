@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/PrivateSky/soundpubsub#readme",
   "dependencies": {
-    "queue": "^7.0.0"
+    "queue": "github:opendsu/queue"
   }
 }
